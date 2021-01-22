@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SeniorFirebase</string>
+    <string name="add_order">Add order</string>
+    <string name="time">Time</string>
+    <string name="date">Date</string>
+    <string name="last_location">Last location</string>
+    <string name="first_location">First location</string>
+    <string name="phone_number">Phone number</string>
+    <string name="request_description">REquest Description</string>
+    <string name="okay">Okay</string>
+    <string name="order_accept">Order accept</string>
+    <string name="todo">todo</string>
+    <string name="order_description">Order desciption</string>
+    <string name="order_date">Order date</string>
+    <string name="update">Update</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+</resources>
