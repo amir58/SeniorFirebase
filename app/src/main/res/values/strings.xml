@@ -16,4 +16,5 @@
     <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="accept">Accept</string>
+    <string name="please_waiting">Please waiting ...</string>
 </resources>

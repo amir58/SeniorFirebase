@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SeniorFirebase">
-        <activity android:name=".ProviderOrderDetailsActivity"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".ProviderOrderDetailsActivity" />
         <activity android:name=".ProviderMainActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".UserOrderDetailsActivity" />
         <activity android:name=".UserAddOrderActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".UserMainActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
