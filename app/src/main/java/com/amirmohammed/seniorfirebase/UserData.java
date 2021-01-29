@@ -2,6 +2,18 @@ package com.amirmohammed.seniorfirebase;
 
 public class UserData {
 
+
+    private String email, name , phone, imageUrl;
+    private boolean provider;
+
+    public UserData(String email, String name, String phone, String imageUrl, boolean provider) {
+        this.email = email;
+        this.name = name;
+        this.phone = phone;
+        this.imageUrl = imageUrl;
+        this.provider = provider;
+    }
+
     @Override
     public String toString() {
         return "UserData{" +
@@ -9,19 +21,19 @@ public class UserData {
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", provider=" + provider +
                 '}';
     }
 
-    private String email, name , phone, imageUrl;
-
-    public UserData(String email, String name, String phone, String imageUrl) {
-        this.email = email;
-        this.name = name;
-        this.phone = phone;
-        this.imageUrl = imageUrl;
+    public UserData() {
     }
 
-    public UserData() {
+    public boolean isProvider() {
+        return provider;
+    }
+
+    public void setProvider(boolean provider) {
+        this.provider = provider;
     }
 
     public String getEmail() {

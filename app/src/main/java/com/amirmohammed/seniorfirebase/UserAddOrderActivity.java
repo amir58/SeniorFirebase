@@ -70,7 +70,8 @@ public class UserAddOrderActivity extends AppCompatActivity {
                 = new OrderData(orderId, userId,
                 description, phoneNumber,
                 firstLocation, lastLocation,
-                date, time);
+                date, time,
+                "","",false, false);
 
         uploadOrderData(orderData);
     }

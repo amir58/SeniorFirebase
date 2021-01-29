@@ -1,15 +1,20 @@
 package com.amirmohammed.seniorfirebase;
 
-public class OrderData {
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class OrderData implements Serializable {
     private String orderId, userId,
             description, phone,
             firstLocation, lastLocation,
-            date, time;
+            date, time,
+            providerId,
+            state;
 
-    public OrderData(String orderId, String userId,
-                     String description, String phone,
-                     String firstLocation, String lastLocation,
-                     String date, String time) {
+    private boolean accept, finish;
+
+    public OrderData(String orderId, String userId, String description, String phone, String firstLocation, String lastLocation, String date, String time, String providerId, String state, boolean accept, boolean finish) {
         this.orderId = orderId;
         this.userId = userId;
         this.description = description;
@@ -18,9 +23,45 @@ public class OrderData {
         this.lastLocation = lastLocation;
         this.date = date;
         this.time = time;
+        this.providerId = providerId;
+        this.state = state;
+        this.accept = accept;
+        this.finish = finish;
     }
 
     public OrderData() {
+    }
+
+    public String getProviderId() {
+        return providerId;
+    }
+
+    public void setProviderId(String providerId) {
+        this.providerId = providerId;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public boolean isAccept() {
+        return accept;
+    }
+
+    public void setAccept(boolean accept) {
+        this.accept = accept;
+    }
+
+    public boolean isFinish() {
+        return finish;
+    }
+
+    public void setFinish(boolean finish) {
+        this.finish = finish;
     }
 
     @Override

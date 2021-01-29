@@ -8,27 +8,27 @@
     app:cardCornerRadius="@dimen/_10sdp">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
-            android:textSize="@dimen/_16ssp"
-            android:padding="@dimen/_5sdp"
-            android:textStyle="bold"
             android:id="@+id/item_order_tv_description"
-            android:text="@string/order_description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/order_description"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold" />
 
         <TextView
-            android:textSize="@dimen/_14ssp"
-            android:padding="@dimen/_5sdp"
             android:id="@+id/item_order_tv_date"
-            android:text="@string/order_date"
-            android:gravity="end"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/order_date"
+            android:textSize="@dimen/_14ssp" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

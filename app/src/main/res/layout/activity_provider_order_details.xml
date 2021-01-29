@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserOrderDetailsActivity">
+    tools:context=".ProviderOrderDetailsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -19,12 +18,12 @@
             android:layout_margin="@dimen/_10sdp"
             android:hint="@string/request_description">
 
-            <AutoCompleteTextView
-                android:padding="@dimen/_10sdp"
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/order_details_request_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                 android:inputType="none" />
+                android:enabled="false"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -35,12 +34,12 @@
             android:layout_margin="@dimen/_10sdp"
             android:hint="@string/phone_number">
 
-            <AutoCompleteTextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/order_details_phone_number"
-                android:padding="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none" />
+                android:enabled="false"
+                android:inputType="phone" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,12 +50,12 @@
             android:layout_margin="@dimen/_10sdp"
             android:hint="@string/first_location">
 
-            <AutoCompleteTextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/order_details_first_location"
                 android:layout_width="match_parent"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="wrap_content"
-                 android:inputType="none" />
+                android:enabled="false"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,12 +66,12 @@
             android:layout_margin="@dimen/_10sdp"
             android:hint="@string/last_location">
 
-            <AutoCompleteTextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/order_details_last_location"
                 android:layout_width="match_parent"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="wrap_content"
-                 android:inputType="none" />
+                android:enabled="false"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,12 +82,12 @@
             android:layout_margin="@dimen/_10sdp"
             android:hint="@string/date">
 
-            <AutoCompleteTextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/order_details_date"
                 android:layout_width="match_parent"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="wrap_content"
-                 android:inputType="none" />
+                android:enabled="false"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,28 +98,12 @@
             android:layout_margin="@dimen/_10sdp"
             android:hint="@string/time">
 
-            <AutoCompleteTextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/order_details_time"
                 android:layout_width="match_parent"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="wrap_content"
-                 android:inputType="none" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
-            android:hint="@string/order_accept">
-
-            <AutoCompleteTextView
-                android:id="@+id/order_details_is_accept"
-                android:layout_width="match_parent"
-                android:padding="@dimen/_10sdp"
-                android:layout_height="wrap_content"
-                 android:inputType="none" />
+                android:enabled="false"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,40 +114,39 @@
             android:layout_margin="@dimen/_10sdp"
             android:hint="Order state">
 
-            <AutoCompleteTextView
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/order_details_state"
                 android:layout_width="match_parent"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="wrap_content"
-                 android:inputType="none" />
+                android:enabled="true"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <CheckBox
+            android:text="Finished"
             android:layout_margin="@dimen/_10sdp"
-            android:hint="Order finished">
-
-            <AutoCompleteTextView
-                android:id="@+id/order_details_is_finish"
-                android:layout_width="match_parent"
-                android:padding="@dimen/_10sdp"
-                android:layout_height="wrap_content"
-                 android:inputType="none" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
+            android:id="@+id/provider_order_details_cb_is_finish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/order_details_material_button"
+            android:id="@+id/provider_order_details_material_button_accept"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10sdp"
             android:elevation="@dimen/_2sdp"
-            android:text="@string/okay"
+            android:text="@string/accept"
+            android:textAllCaps="false"
+            app:cornerRadius="@dimen/_10sdp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/provider_order_details_material_button_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:elevation="@dimen/_2sdp"
+            android:text="@string/update"
             android:textAllCaps="false"
             app:cornerRadius="@dimen/_10sdp" />
 

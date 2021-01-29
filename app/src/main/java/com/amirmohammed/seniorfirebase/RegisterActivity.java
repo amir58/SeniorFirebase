@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "RegisterActivity";
     private CircleImageView circleImageView;
+    private CheckBox checkBoxProvider;
     private EditText editTextEmail, editTextPassword, editTextName, editTextPhone;
     private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private final StorageReference storageReference = FirebaseStorage.getInstance().getReference();
@@ -35,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String email = "";
     private String name = "";
     private String phone = "";
+    boolean provider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,8 @@ public class RegisterActivity extends AppCompatActivity {
         editTextName = findViewById(R.id.register_et_name);
         editTextPhone = findViewById(R.id.register_et_phone);
 
+        checkBoxProvider = findViewById(R.id.checkbox_provider);
+
     }
 
     public void register(View view) {
@@ -54,6 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         String password = editTextPassword.getText().toString().trim();
         name = editTextName.getText().toString().trim();
         phone = editTextPhone.getText().toString().trim();
+        provider = checkBoxProvider.isChecked();
 
         if (email.isEmpty() || password.isEmpty() || name.isEmpty() || phone.isEmpty()) {
             Toast.makeText(this, "Please fill all data", Toast.LENGTH_SHORT).show();
@@ -125,7 +131,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void uploadUserData(String imageUrl) {
-        UserData userData = new UserData(email, name, phone, imageUrl); // ctrl + p
+        UserData userData = new UserData(email, name, phone, imageUrl,provider); // ctrl + p
 
         firestore.collection("seniorUsers")
                 .document(firebaseAuth.getCurrentUser().getUid())
@@ -134,8 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                            finish();
+                            navigate();
 
                         } else {
                             String errorMessage = task.getException().getLocalizedMessage();
@@ -143,6 +148,15 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void navigate() {
+        if (provider) {
+            startActivity(new Intent(RegisterActivity.this, ProviderMainActivity.class));
+        } else {
+            startActivity(new Intent(RegisterActivity.this, UserMainActivity.class));
+        }
+        finish();
     }
 
     public void openGallery(View view) {
